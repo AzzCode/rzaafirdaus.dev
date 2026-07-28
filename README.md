@@ -30,6 +30,7 @@ app/                  Route, layout, metadata, dan global style
   projects/           Halaman katalog software project
   research/           Halaman katalog penelitian
   experience/         Timeline pengalaman dan leadership
+  certificates/       Galeri dan preview PDF sertifikat
 components/
   layout/             Navbar dan Footer
   sections/           Section halaman
@@ -41,6 +42,8 @@ data/                 Seluruh konten portfolio
   research.ts         Data penelitian
   experience.ts       Pengalaman profesional, kreatif, dan relawan
   leadership.ts       Pengalaman kepemimpinan serta dampak program
+  skills.ts           Skill groups dan konteks technology stack
+  certificates.ts     Metadata galeri sertifikat
 types/                TypeScript types
 public/
   documents/          CV dan dokumen publik
@@ -56,6 +59,7 @@ Konten profil dan tautan utama dapat diperbarui melalui `data/profile.ts`. Konte
 - React, Flutter, IoT, dan Excel dari mini bootcamp akan ditandai sebagai training exposure, bukan klaim penguasaan profesional.
 - Aset bukti dan sertifikat akan dihubungkan dari data section terkait.
 - Dokumen yang memuat nomor identitas tidak dipublikasikan tanpa versi yang sudah disanitasi.
+- `Portfolio Stack` menjelaskan teknologi yang digunakan pada website ini, sedangkan `Training Exposure` menjelaskan materi pengenalan dari pelatihan.
 
 ## Deployment
 

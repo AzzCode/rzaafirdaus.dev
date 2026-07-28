@@ -10,7 +10,7 @@ export function FeaturedProjects() {
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          index="02"
+          index="03"
           eyebrow="Featured Projects"
           title="Pengembangan yang berangkat dari kebutuhan nyata."
           description="Project ditampilkan sebagai studi kasus: konteks, kontribusi, teknologi, bukti pengerjaan, dan hal yang dipelajari."

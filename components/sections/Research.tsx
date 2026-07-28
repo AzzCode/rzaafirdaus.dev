@@ -10,7 +10,7 @@ export function Research() {
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          index="03"
+          index="04"
           eyebrow="Research"
           title="Riset terapan untuk membaca persoalan di lapangan."
           description="Eksplorasi deep learning, computer vision, dan GIS untuk analisis infrastruktur jalan serta pemantauan keselamatan konstruksi."

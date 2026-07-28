@@ -56,5 +56,6 @@ export const navigation: readonly NavigationItem[] = [
   { label: "Projects", href: "/projects" },
   { label: "Research", href: "/research" },
   { label: "Experience", href: "/experience" },
+  { label: "Certificates", href: "/certificates" },
   { label: "Contact", href: "/#contact" },
 ];

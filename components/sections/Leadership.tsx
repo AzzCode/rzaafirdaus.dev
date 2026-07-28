@@ -16,7 +16,7 @@ export function Leadership({
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          index="05"
+          index="06"
           eyebrow="Leadership"
           title="Memimpin sistem kerja, bukan mengambil seluruh kredit."
           description="Kepemimpinan ditampilkan melalui koordinasi, tanggung jawab, dampak program, dan pembagian peran yang transparan."

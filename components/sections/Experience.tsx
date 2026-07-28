@@ -16,7 +16,7 @@ export function Experience({
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          index="04"
+          index="05"
           eyebrow="Experience"
           title="Pengalaman lintas peran, dengan tanggung jawab yang jelas."
           description="Pengalaman profesional, produksi kreatif, dan kolaborasi media yang memperkuat kemampuan bekerja dengan data, dokumentasi, serta tim lintas disiplin."
