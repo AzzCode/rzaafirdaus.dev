@@ -31,6 +31,11 @@ app/                  Route, layout, metadata, dan global style
   research/           Halaman katalog penelitian
   experience/         Timeline pengalaman dan leadership
   certificates/       Galeri dan preview PDF sertifikat
+  resume/             Resume online yang mengambil data portfolio
+  contact/            Halaman kontak profesional
+  sitemap.ts          Daftar route untuk mesin pencari
+  robots.ts           Aturan crawler dan alamat sitemap
+  opengraph-image.tsx Social preview image dinamis
 components/
   layout/             Navbar dan Footer
   sections/           Section halaman
@@ -45,6 +50,7 @@ data/                 Seluruh konten portfolio
   skills.ts           Skill groups dan konteks technology stack
   certificates.ts     Metadata galeri sertifikat
 types/                TypeScript types
+lib/                  Helper metadata dan konfigurasi SEO
 public/
   documents/          CV dan dokumen publik
   images/             Foto serta thumbnail
@@ -64,3 +70,14 @@ Konten profil dan tautan utama dapat diperbarui melalui `data/profile.ts`. Konte
 ## Deployment
 
 Repository ini dapat dihubungkan langsung ke Vercel. Setiap push ke branch produksi akan memicu build dan deployment sesuai konfigurasi project Vercel.
+
+## SEO
+
+- Metadata global dan metadata unik per halaman.
+- Canonical URL untuk seluruh route publik.
+- Open Graph dan Twitter Card dengan social preview 1200 × 630.
+- `sitemap.xml` dan `robots.txt` dibuat melalui Metadata Routes.
+- Structured data `Person` dan `WebSite` menggunakan JSON-LD.
+
+Domain utama dikonfigurasi melalui `lib/seo.ts`. Ubah `siteConfig.url` jika
+website menggunakan domain produksi yang berbeda.

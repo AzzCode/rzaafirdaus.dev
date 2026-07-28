@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
-
 import { ProjectCard } from "@/components/cards/ProjectCard";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { projects } from "@/data/projects";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Projects",
-  description:
-    "Project software development Reza Firdaus, mencakup konteks, kontribusi, teknologi, dan bukti pengerjaan.",
-};
+export const metadata = createPageMetadata(
+  "Projects",
+  "Project software development Reza Firdaus, mencakup konteks, kontribusi, teknologi, dan bukti pengerjaan.",
+  "/projects",
+);
 
 export default function ProjectsPage() {
   return (

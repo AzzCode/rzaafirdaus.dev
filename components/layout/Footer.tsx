@@ -2,10 +2,7 @@ import { profile } from "@/data/profile";
 
 export function Footer() {
   return (
-    <footer
-      id="contact"
-      className="border-t border-white/8 bg-[#050816] px-5 py-10 sm:px-8"
-    >
+    <footer className="border-t border-white/8 bg-[#050816] px-5 py-10 sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-semibold text-white">{profile.name}</p>

@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
-
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { CertificateGallery } from "@/components/sections/CertificateGallery";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { certificates } from "@/data/certificates";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Certificates",
-  description:
-    "Galeri sertifikat, pelatihan, kepemimpinan, workshop, dan pencapaian Reza Firdaus.",
-};
+export const metadata = createPageMetadata(
+  "Certificates",
+  "Galeri sertifikat, pelatihan, kepemimpinan, workshop, dan pencapaian Reza Firdaus.",
+  "/certificates",
+);
 
 export default function CertificatesPage() {
   return (

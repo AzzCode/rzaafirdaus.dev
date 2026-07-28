@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
-
 import { ResearchCard } from "@/components/cards/ResearchCard";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { researchProjects } from "@/data/research";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Research",
-  description:
-    "Penelitian terapan Reza Firdaus pada deep learning, computer vision, GIS, dan analisis data.",
-};
+export const metadata = createPageMetadata(
+  "Research",
+  "Penelitian terapan Reza Firdaus pada deep learning, computer vision, GIS, dan analisis data.",
+  "/research",
+);
 
 export default function ResearchPage() {
   return (
