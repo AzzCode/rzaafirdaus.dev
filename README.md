@@ -27,20 +27,24 @@ npm run start
 
 ```text
 app/                  Route, layout, metadata, dan global style
+  projects/           Halaman katalog software project
+  research/           Halaman katalog penelitian
 components/
   layout/             Navbar dan Footer
   sections/           Section halaman
-  cards/              Card reusable (sprint berikutnya)
-  ui/                 Komponen UI dasar (sprint berikutnya)
+  cards/              ProjectCard dan ResearchCard
+  ui/                 Heading, page intro, dan visual abstrak
 data/                 Seluruh konten portfolio
-lib/                  Helper dan utility (sprint berikutnya)
+  profile.ts          Profil, kontak, dan navigasi
+  projects.ts         Data software project
+  research.ts         Data penelitian
 types/                TypeScript types
 public/
   documents/          CV dan dokumen publik
   images/             Foto serta thumbnail
 ```
 
-Konten profil dan tautan utama dapat diperbarui melalui `data/profile.ts`. Komponen tidak menyimpan fakta profil secara langsung agar pembaruan berikutnya lebih aman dan konsisten.
+Konten profil dan tautan utama dapat diperbarui melalui `data/profile.ts`. Konten project berada di `data/projects.ts`, sedangkan penelitian berada di `data/research.ts`. Komponen tidak menyimpan fakta portfolio secara langsung agar pembaruan berikutnya lebih aman dan konsisten.
 
 ## Prinsip konten
 

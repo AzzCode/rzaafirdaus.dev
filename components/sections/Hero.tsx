@@ -56,9 +56,9 @@ export function Hero() {
           <div className="reveal-up reveal-up-delay-3 mt-9 flex flex-col gap-3 sm:flex-row">
             <a
               className="inline-flex min-h-12 items-center justify-center rounded-xl bg-blue-600 px-6 text-sm font-bold text-white shadow-lg shadow-blue-950/30 transition-all hover:-translate-y-0.5 hover:bg-blue-500"
-              href="#about"
+              href="#projects"
             >
-              Jelajahi Portofolio
+              Explore Projects
               <span aria-hidden="true" className="ml-2">
                 ↓
               </span>

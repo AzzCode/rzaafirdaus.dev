@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { navigation, profile } from "@/data/profile";
 
 const linkStyles =
@@ -10,8 +12,8 @@ export function Navbar() {
         aria-label="Navigasi utama"
         className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10"
       >
-        <a
-          href="#main-content"
+        <Link
+          href="/"
           className="group flex items-center gap-3"
           aria-label={`${profile.name}, kembali ke bagian utama`}
         >
@@ -21,13 +23,13 @@ export function Navbar() {
           <span className="text-sm font-semibold tracking-tight text-white sm:text-base">
             {profile.name}
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
           {navigation.map((item) => (
-            <a key={item.href} className={linkStyles} href={item.href}>
+            <Link key={item.href} className={linkStyles} href={item.href}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -52,13 +54,13 @@ export function Navbar() {
           </summary>
           <div className="absolute right-0 top-13 w-56 rounded-2xl border border-white/10 bg-[#0a1022]/98 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white"
                 href={item.href}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a
               className="mt-1 block rounded-xl bg-blue-600 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-blue-500"

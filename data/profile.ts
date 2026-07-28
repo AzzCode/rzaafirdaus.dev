@@ -52,6 +52,8 @@ export const profile: Profile = {
 };
 
 export const navigation: readonly NavigationItem[] = [
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Research", href: "/research" },
+  { label: "Contact", href: "/#contact" },
 ];

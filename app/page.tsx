@@ -1,7 +1,9 @@
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { About } from "@/components/sections/About";
+import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { Hero } from "@/components/sections/Hero";
+import { Research } from "@/components/sections/Research";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <About />
+        <FeaturedProjects />
+        <Research />
       </main>
       <Footer />
     </>
