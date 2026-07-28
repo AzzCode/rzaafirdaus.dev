@@ -25,6 +25,8 @@ export function CertificateGallery({
   const [selectedCertificate, setSelectedCertificate] =
     useState<Certificate | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
   const visibleCertificates = useMemo(() => {
     if (activeCategory === "All") {
@@ -41,16 +43,39 @@ export function CertificateGallery({
       return;
     }
 
+    lastFocusedElementRef.current = document.activeElement as HTMLElement;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setSelectedCertificate(null);
       }
+
+      if (event.key === "Tab" && dialogRef.current) {
+        const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])',
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement?.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement?.focus();
+        }
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      lastFocusedElementRef.current?.focus();
+    };
   }, [selectedCertificate]);
 
   return (
@@ -98,15 +123,20 @@ export function CertificateGallery({
           role="dialog"
           aria-modal="true"
           aria-labelledby="certificate-dialog-title"
+          aria-describedby="certificate-dialog-description"
         >
           <button
             type="button"
             className="absolute inset-0 cursor-default bg-black/80 backdrop-blur-sm"
             onClick={() => setSelectedCertificate(null)}
             aria-label="Tutup preview sertifikat"
+            tabIndex={-1}
           />
 
-          <div className="relative flex h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/12 bg-[#080d1c] shadow-2xl shadow-black/60">
+          <div
+            ref={dialogRef}
+            className="relative flex h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/12 bg-[#080d1c] shadow-2xl shadow-black/60"
+          >
             <div className="flex items-start justify-between gap-4 border-b border-white/8 p-4 sm:p-5">
               <div>
                 <p className="font-mono text-[0.62rem] tracking-[0.14em] text-blue-400 uppercase">
@@ -118,6 +148,12 @@ export function CertificateGallery({
                 >
                   {selectedCertificate.title}
                 </h2>
+                <p
+                  id="certificate-dialog-description"
+                  className="sr-only"
+                >
+                  Preview dokumen PDF sertifikat. Tekan Escape untuk menutup.
+                </p>
               </div>
               <div className="flex shrink-0 items-center gap-2">
                 <a

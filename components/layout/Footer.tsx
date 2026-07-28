@@ -28,6 +28,12 @@ export function Footer() {
               {link.label}
             </a>
           ))}
+          <a
+            className="text-sm text-slate-400 transition-colors hover:text-white"
+            href="#main-content"
+          >
+            Kembali ke atas ↑
+          </a>
         </div>
       </div>
     </footer>

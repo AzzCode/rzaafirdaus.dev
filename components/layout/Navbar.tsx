@@ -1,11 +1,32 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 import { navigation, profile } from "@/data/profile";
 
 const linkStyles =
-  "text-sm font-medium text-slate-300 transition-colors hover:text-white";
+  "rounded-md text-xs font-medium text-slate-300 transition-colors hover:text-white focus-visible:outline-offset-4 xl:text-sm";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const menuRef = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => {
+    if (menuRef.current) {
+      menuRef.current.open = false;
+    }
+  }, [pathname]);
+
+  const isActive = (href: string) => {
+    if (href === "/#about") {
+      return pathname === "/";
+    }
+
+    return pathname === href;
+  };
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/8 bg-[#050816]/75 backdrop-blur-xl">
       <nav
@@ -25,15 +46,26 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-7 lg:flex">
-          {navigation.map((item) => (
-            <Link key={item.href} className={linkStyles} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
+        <div className="hidden items-center gap-4 lg:flex xl:gap-7">
+          {navigation.map((item) => {
+            const active = isActive(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                className={`${linkStyles} ${
+                  active ? "text-blue-300" : ""
+                }`}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
 
-        <div className="hidden items-center gap-3 sm:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <a
             className="rounded-full border border-white/12 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-blue-400/45 hover:bg-blue-500/10"
             href={profile.cvPath}
@@ -43,7 +75,7 @@ export function Navbar() {
           </a>
         </div>
 
-        <details className="group relative sm:hidden">
+        <details ref={menuRef} className="group relative lg:hidden">
           <summary className="flex size-10 cursor-pointer list-none items-center justify-center rounded-xl border border-white/12 bg-white/5 text-white [&::-webkit-details-marker]:hidden">
             <span className="sr-only">Buka navigasi</span>
             <span className="flex w-4 flex-col gap-1">
@@ -53,15 +85,22 @@ export function Navbar() {
             </span>
           </summary>
           <div className="absolute right-0 top-13 w-56 rounded-2xl border border-white/10 bg-[#0a1022]/98 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-300 hover:bg-white/5 hover:text-white"
-                href={item.href}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const active = isActive(item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  className={`block rounded-xl px-4 py-3 text-sm font-medium hover:bg-white/5 hover:text-white ${
+                    active ? "bg-blue-500/10 text-blue-300" : "text-slate-300"
+                  }`}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <a
               className="mt-1 block rounded-xl bg-blue-600 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-blue-500"
               href={profile.cvPath}

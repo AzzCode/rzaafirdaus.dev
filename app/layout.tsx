@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import { JsonLd } from "@/components/ui/JsonLd";
 import { profile } from "@/data/profile";
@@ -14,6 +14,12 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
+  manifest: "/manifest.webmanifest",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   authors: [{ name: profile.name, url: siteConfig.url }],
   creator: profile.name,
   publisher: profile.name,
@@ -64,6 +70,13 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "dark",
+  themeColor: "#050816",
 };
 
 export default function RootLayout({

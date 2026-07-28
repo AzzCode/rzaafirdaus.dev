@@ -23,6 +23,9 @@ npm run build
 npm run start
 ```
 
+Versi Node.js yang digunakan oleh project dan GitHub Actions dicatat pada
+`.nvmrc`.
+
 ## Struktur utama
 
 ```text
@@ -36,6 +39,10 @@ app/                  Route, layout, metadata, dan global style
   sitemap.ts          Daftar route untuk mesin pencari
   robots.ts           Aturan crawler dan alamat sitemap
   opengraph-image.tsx Social preview image dinamis
+  manifest.ts         Web App Manifest
+  loading.tsx         Loading state
+  not-found.tsx       Halaman 404
+  error.tsx           Error boundary
 components/
   layout/             Navbar dan Footer
   sections/           Section halaman
@@ -54,6 +61,9 @@ lib/                  Helper metadata dan konfigurasi SEO
 public/
   documents/          CV dan dokumen publik
   images/             Foto serta thumbnail
+.github/
+  workflows/          Pemeriksaan lint dan build otomatis
+  dependabot.yml      Jadwal pembaruan dependency
 ```
 
 Konten profil dan tautan utama dapat diperbarui melalui `data/profile.ts`. Konten project berada di `data/projects.ts`, sedangkan penelitian berada di `data/research.ts`. Komponen tidak menyimpan fakta portfolio secara langsung agar pembaruan berikutnya lebih aman dan konsisten.
@@ -71,6 +81,10 @@ Konten profil dan tautan utama dapat diperbarui melalui `data/profile.ts`. Konte
 
 Repository ini dapat dihubungkan langsung ke Vercel. Setiap push ke branch produksi akan memicu build dan deployment sesuai konfigurasi project Vercel.
 
+Langkah deployment, domain, dan pengaturan akses tersedia pada
+[`DEPLOYMENT.md`](./DEPLOYMENT.md). Prosedur pemeliharaan dependency tersedia
+pada [`SECURITY.md`](./SECURITY.md).
+
 ## SEO
 
 - Metadata global dan metadata unik per halaman.
@@ -78,6 +92,13 @@ Repository ini dapat dihubungkan langsung ke Vercel. Setiap push ke branch produ
 - Open Graph dan Twitter Card dengan social preview 1200 × 630.
 - `sitemap.xml` dan `robots.txt` dibuat melalui Metadata Routes.
 - Structured data `Person` dan `WebSite` menggunakan JSON-LD.
+- Web App Manifest dan theme color.
 
 Domain utama dikonfigurasi melalui `lib/seo.ts`. Ubah `siteConfig.url` jika
 website menggunakan domain produksi yang berbeda.
+
+## Quality gate
+
+GitHub Actions menjalankan `npm ci`, ESLint, dan production build pada push ke
+`main` serta pull request. Perubahan sebaiknya tidak di-deploy jika workflow
+tersebut gagal.
