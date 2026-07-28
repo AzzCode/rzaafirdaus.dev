@@ -29,6 +29,7 @@ npm run start
 app/                  Route, layout, metadata, dan global style
   projects/           Halaman katalog software project
   research/           Halaman katalog penelitian
+  experience/         Timeline pengalaman dan leadership
 components/
   layout/             Navbar dan Footer
   sections/           Section halaman
@@ -38,6 +39,8 @@ data/                 Seluruh konten portfolio
   profile.ts          Profil, kontak, dan navigasi
   projects.ts         Data software project
   research.ts         Data penelitian
+  experience.ts       Pengalaman profesional, kreatif, dan relawan
+  leadership.ts       Pengalaman kepemimpinan serta dampak program
 types/                TypeScript types
 public/
   documents/          CV dan dokumen publik
@@ -52,6 +55,7 @@ Konten profil dan tautan utama dapat diperbarui melalui `data/profile.ts`. Konte
 - Fokus utama: software engineering, research, leadership, lalu creative industry.
 - React, Flutter, IoT, dan Excel dari mini bootcamp akan ditandai sebagai training exposure, bukan klaim penguasaan profesional.
 - Aset bukti dan sertifikat akan dihubungkan dari data section terkait.
+- Dokumen yang memuat nomor identitas tidak dipublikasikan tanpa versi yang sudah disanitasi.
 
 ## Deployment
 
