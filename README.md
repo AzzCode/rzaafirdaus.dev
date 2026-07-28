@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# rzaafirdaus.dev
 
-## Getting Started
+Personal portfolio Reza Firdaus, dibangun dengan Next.js, TypeScript, Tailwind CSS, dan App Router.
 
-First, run the development server:
+Website ini memosisikan Reza sebagai fresh graduate Teknik Informatika yang berfokus pada software development dan riset terapan. Pengalaman kepemimpinan organisasi serta industri kreatif disajikan sebagai nilai tambah, bukan fokus utama.
+
+## Menjalankan project
+
+Gunakan Node.js versi LTS, lalu jalankan:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Untuk memeriksa versi produksi:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+npm run start
+```
 
-## Learn More
+## Struktur utama
 
-To learn more about Next.js, take a look at the following resources:
+```text
+app/                  Route, layout, metadata, dan global style
+components/
+  layout/             Navbar dan Footer
+  sections/           Section halaman
+  cards/              Card reusable (sprint berikutnya)
+  ui/                 Komponen UI dasar (sprint berikutnya)
+data/                 Seluruh konten portfolio
+lib/                  Helper dan utility (sprint berikutnya)
+types/                TypeScript types
+public/
+  documents/          CV dan dokumen publik
+  images/             Foto serta thumbnail
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Konten profil dan tautan utama dapat diperbarui melalui `data/profile.ts`. Komponen tidak menyimpan fakta profil secara langsung agar pembaruan berikutnya lebih aman dan konsisten.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Prinsip konten
 
-## Deploy on Vercel
+- Tidak menambahkan pengalaman, prestasi, atau keahlian yang tidak memiliki sumber.
+- Fokus utama: software engineering, research, leadership, lalu creative industry.
+- React, Flutter, IoT, dan Excel dari mini bootcamp akan ditandai sebagai training exposure, bukan klaim penguasaan profesional.
+- Aset bukti dan sertifikat akan dihubungkan dari data section terkait.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Repository ini dapat dihubungkan langsung ke Vercel. Setiap push ke branch produksi akan memicu build dan deployment sesuai konfigurasi project Vercel.
