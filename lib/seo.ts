@@ -5,7 +5,7 @@ export const siteConfig = {
   title: "Reza Firdaus — Aspiring Software Engineer",
   description:
     "Portofolio Reza Firdaus, fresh graduate Teknik Informatika yang berfokus pada software development, riset terapan, dan pengalaman lintas disiplin.",
-  url: "https://rzaafirdaus.dev",
+  url: "https://rzaafirdaus-dev.vercel.app",
   locale: "id_ID",
   ogImage: "/opengraph-image",
 } as const;
